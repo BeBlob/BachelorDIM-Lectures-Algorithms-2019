@@ -37,7 +37,7 @@ def average_above_zero(table):
 @param table: list
 @return max: float
 @error can't give another type than list as input, can't give a table with cells of another type than number
-get the max of a table
+get the max value of a table
 """
 def max_value_of_table(table):
 
@@ -59,7 +59,7 @@ def max_value_of_table(table):
 @param table: list
 @return max: tuple
 @error can't give another type than list as input, can't give a table with cells of another type than number
-get the max of a table
+get the max value of a table and its index
 """
 def max_of_table(table):
 

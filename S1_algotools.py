@@ -2,6 +2,7 @@
 @date: 26/09/2019 - 15h
 @author: BeBlob
 """
+import numpy as np
 
 """Documentation for average_above_zero
 @param table:list
@@ -97,6 +98,24 @@ def reverse_table(table):
             
     return table[nb_elem:]
 
+"""Documentation for roi_bbox
+@param input_image: numpy array
+@return output_matrix: numpy array
+get a bounding box from a 2D image
+"""
+
+"""
+def roi_bbox(table):
+
+    matrix = np.zeroes((10,10), dtype = np.int32)
+    matrix[3:6, 4:8] = np.ones((3,4), dtype = np.int32)
+    for idrow in range(matrix.reshape[0]):
+        for idcol in range(matrix.reshape[1])
+            pixVal = matrix[idrow, idcol]
+"""
+
+'''TESTS'''
+
 """Exo 1
 """
 print('Exercice 1, La moyenne est : {moy}'.format(moy = average_above_zero([1,2,3,4,5])))
@@ -112,5 +131,7 @@ print('Exercice 1.2, L\'index de la valeur max est : {max_index} et la valeur ma
 
 """Exo 2
 """
-reversed_table = reverse_table([1,2,3,4,5])
-print('Exercice 2, le tableau inversé est : {table}'.format(table = reversed_table))
+print('Exercice 2, Le tableau inversé est : {table}'.format(table = reverse_table([1,2,3,4,5])))
+
+"""Exo 3
+"""

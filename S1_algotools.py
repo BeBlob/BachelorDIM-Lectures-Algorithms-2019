@@ -22,14 +22,12 @@ def average_above_zero(table):
         raise ValueError('average_above_zero, expected a list of numbers')
 
     sum = 0
-    cmpt_elem = 0
 
     for cmpt in range(nb_elem) :
         if table[cmpt] > 0 :
             sum = sum + table[cmpt]
-            cmpt_elem = cmpt_elem + 1
 
-    moy = sum/cmpt_elem
+    moy = sum/(cmpt + 1)
 
     return moy
 
@@ -79,6 +77,28 @@ def max_of_table(table):
             
     return max_elem,max_elem_index
 
+"""Documentation for reverse_table
+@param table: list
+@return table_reversed: list
+@error can't give another type than list as input
+get the table input reversed
+"""
+def reverse_table(table):
+
+    if not(isinstance(table, list)):
+        raise ValueError('max_of_table, expected a list as input')
+
+    nb_elem = len(table)
+    max_elem = 0
+    max_elem_index = 0
+
+    for cmpt in range(nb_elem) :
+        if table[cmpt] > max_elem :
+            max_elem = table[cmpt]
+            max_elem_index = cmpt
+            
+    return max_elem,max_elem_index
+
 """Exo 1
 """
 print('Exercice 1, La moyenne est : {moy}'.format(moy = average_above_zero([1,2,3,4,5])))
@@ -92,5 +112,5 @@ print('Exercice 1.1, La valeur maximale est : {max}'.format(max = max_value_of_t
 max = max_of_table([1,2,3,4,5])
 print('Exercice 1.2, L\'index de la valeur max est : {max_index} et la valeur max est : {max_value}'.format(max_index = max[1], max_value = max[0]))
 
-"""Exo 1.3
+"""Exo 2
 """

@@ -89,15 +89,13 @@ def reverse_table(table):
         raise ValueError('max_of_table, expected a list as input')
 
     nb_elem = len(table)
-    max_elem = 0
-    max_elem_index = 0
+    cmpt = 1
 
-    for cmpt in range(nb_elem) :
-        if table[cmpt] > max_elem :
-            max_elem = table[cmpt]
-            max_elem_index = cmpt
+    while cmpt < nb_elem+1 :
+        table.append(table[nb_elem-cmpt])
+        cmpt = cmpt + 1
             
-    return max_elem,max_elem_index
+    return table[nb_elem:]
 
 """Exo 1
 """
@@ -114,3 +112,5 @@ print('Exercice 1.2, L\'index de la valeur max est : {max_index} et la valeur ma
 
 """Exo 2
 """
+reversed_table = reverse_table([1,2,3,4,5])
+print('Exercice 2, le tableau inversé est : {table}'.format(table = reversed_table))

@@ -18,18 +18,22 @@ def average_above_zero(table):
     nb_elem = len(table)
 
     if nb_elem == 0 :
-        raise ZeroDivisionError('average_above_zero, can\'t divide by zero')
+        raise ValueError('average_above_zero, void table')
     if not(isinstance(table[0], (int,float))):
         raise ValueError('average_above_zero, expected a list of numbers')
 
     sum = 0
+    diviseur = 0
 
     for cmpt in range(nb_elem) :
         if table[cmpt] > 0 :
             sum = sum + table[cmpt]
+            diviseur = diviseur + 1
 
     if sum == 0 :
         raise ValueError('average_above_zero, positive number')
+    if diviseur == 0 :
+        raise ZeroDivisionError('average_above_zero, can\'t divide by zero')
 
     moy = sum/(cmpt + 1)
 
@@ -124,7 +128,7 @@ def roi_bbox(table):
 
 """Exo 1
 """
-#print('Exercice 1, La moyenne est : {moy}'.format(moy = average_above_zero([1,2,3,4,5])))
+print('Exercice 1, La moyenne est : {moy}'.format(moy = average_above_zero([1,2,3,4,5])))
 
 """Exo 1.1
 """

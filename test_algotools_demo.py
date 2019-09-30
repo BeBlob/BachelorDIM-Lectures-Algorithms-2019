@@ -6,16 +6,6 @@ Created on Sun Sep 29 21:44:54 2019
 import S1_algotools_teacherdemo as algotools
 import pytest
 
-def inc_(x):
-    return x+1
-
-def test_inc():
-    assert inc_(3)==5
-
-def test_divide_by_zero():
-    with pytest.raises(ZeroDivisionError):
-        1/0
-
 """Exo 1
 print('Exercice 1, La moyenne est : {moy}'.format(moy = average_above_zero([1,2,3,4,5])))
 """

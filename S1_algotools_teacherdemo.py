@@ -124,7 +124,7 @@ def roi_bbox(table):
 
 """Exo 1
 """
-print('Exercice 1, La moyenne est : {moy}'.format(moy = average_above_zero([1,2,3,4,5])))
+#print('Exercice 1, La moyenne est : {moy}'.format(moy = average_above_zero([1,2,3,4,5])))
 
 """Exo 1.1
 """

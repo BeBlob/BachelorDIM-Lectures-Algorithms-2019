@@ -19,23 +19,21 @@ def average_above_zero(table):
 
     if nb_elem == 0 :
         raise ValueError('average_above_zero, void table')
-    if not(isinstance(table[0], (int,float))):
-        raise ValueError('average_above_zero, expected a list of numbers')
 
     sum = 0
     diviseur = 0
 
     for cmpt in range(nb_elem) :
+        if not(isinstance(table[cmpt], (int,float))):
+            raise ValueError('average_above_zero, expected a list of numbers')
         if table[cmpt] > 0 :
             sum = sum + table[cmpt]
             diviseur = diviseur + 1
 
     if sum == 0 :
-        raise ValueError('average_above_zero, positive number')
-    if diviseur == 0 :
-        raise ZeroDivisionError('average_above_zero, can\'t divide by zero')
+        raise ValueError('average_above_zero, no positive number')
 
-    moy = sum/(cmpt + 1)
+    moy = sum/(diviseur)
 
     return moy
 

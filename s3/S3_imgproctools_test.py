@@ -1,3 +1,3 @@
 """
-@author : BeBlob
+@author: BeBlob
 """

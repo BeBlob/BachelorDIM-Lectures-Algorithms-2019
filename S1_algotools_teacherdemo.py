@@ -13,12 +13,12 @@ get the average of a table above zero
 def average_above_zero(table):
 
     if not(isinstance(table, list)):
-        raise ValueError('average_above_zero, expected a list as input')
+        raise TypeError('average_above_zero, expected a list as input')
 
     nb_elem = len(table)
 
     if nb_elem == 0 :
-        raise ValueError('average_above_zero, can\'t divide by zero')
+        raise ZeroDivisionError('average_above_zero, can\'t divide by zero')
     if not(isinstance(table[0], (int,float))):
         raise ValueError('average_above_zero, expected a list of numbers')
 
@@ -27,6 +27,9 @@ def average_above_zero(table):
     for cmpt in range(nb_elem) :
         if table[cmpt] > 0 :
             sum = sum + table[cmpt]
+
+    if sum == 0 :
+        raise ValueError('average_above_zero, positive number')
 
     moy = sum/(cmpt + 1)
 
@@ -104,7 +107,7 @@ def reverse_table(table):
 get a bounding box from a 2D image
 """
 
-"""
+"""TODO
 def roi_bbox(table):
 
     matrix = np.zeroes((10,10), dtype = np.int32)
@@ -112,6 +115,9 @@ def roi_bbox(table):
     for idrow in range(matrix.reshape[0]):
         for idcol in range(matrix.reshape[1])
             pixVal = matrix[idrow, idcol]
+
+    for row in range(matrix.reshape[0])
+        if matrix[row]
 """
 
 '''TESTS'''

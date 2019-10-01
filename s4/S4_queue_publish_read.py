@@ -18,6 +18,9 @@ if args.read:
     print("read mode turned on")
     rpub.read_messages()
     
-if args.write:
+elif args.publish:
     print("publish mode turned on")
     ppub.publish_message()
+
+else :
+    print('Aucun arguments valables')

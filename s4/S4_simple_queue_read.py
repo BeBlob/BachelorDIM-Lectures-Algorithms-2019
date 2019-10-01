@@ -5,8 +5,6 @@
 import os
 import pika
 
-mode='SEND' 
-
 def callback(ch, method, properties, body):
     print(" [x] Received %r" % body)
 
@@ -22,11 +20,10 @@ connection = pika.BlockingConnection(params) # Connect to CloudAMQP
 channel = connection.channel()
 
 channel.queue_declare(queue='presentation')
-
-channel.basic_publish(exchange='',
-                    routing_key='presentation',
-                    body='Coucou, moi c\'est BeBlob')
-                          
-print(" [x] Sent 'Coucou, moi c\'est BeBlob'")
+        
+channel.basic_consume(queue='presentation',
+                    on_message_callback=callback,                          
+                    auto_ack=True)
     
-connection.close()
+print(' [*] Waiting for messages. To exit press CTRL+C')
+channel.start_consuming()

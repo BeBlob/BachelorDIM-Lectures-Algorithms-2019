@@ -3,6 +3,7 @@
 @author: BeBlob
 """
 import numpy as np
+import cv as cv2
 
 """Documentation for average_above_zero
 @param table:list

@@ -92,7 +92,7 @@ get the table input reversed
 def reverse_table(table):
 
     if not(isinstance(table, list)):
-        raise ValueError('max_of_table, expected a list as input')
+        raise ValueError('reverse_table, expected a list as input')
 
     nb_elem = len(table)
     cmpt = 1
@@ -108,19 +108,30 @@ def reverse_table(table):
 @return output_matrix: numpy array
 get a bounding box from a 2D image
 """
+def roi_bbox(input_image):
 
-"""TODO
-def roi_bbox(table):
+    if not(isinstance(input_image,np.ndarray)):
+        raise ValueError('roi_bbox, expected a np.ndarray as input')
 
-    matrix = np.zeroes((10,10), dtype = np.int32)
-    matrix[3:6, 4:8] = np.ones((3,4), dtype = np.int32)
-    for idrow in range(matrix.reshape[0]):
-        for idcol in range(matrix.reshape[1])
-            pixVal = matrix[idrow, idcol]
+    lignes = len(input_image)
+    colonnes =len(input_image[0])
+    minC = colonnes
+    maxC = -1
+    minL = -1
+    maxL = -1
 
-    for row in range(matrix.reshape[0])
-        if matrix[row]
-"""
+    for ln in range(lignes):
+        for cl in range(colonnes):
+            if(input_image[ln][cl]!=0):
+                maxC = ln
+                if(minL == -1):
+                    minL = ln
+                if(cl < minC):
+                    minC = cl
+                if(cl > maxC):
+                    maxC = cl
+    b_box = [[minL, minC], [minL, maxC], [maxL, minC], [maxL, maxC]]
+    return b_box
 
 '''TESTS'''
 
@@ -143,3 +154,6 @@ print('Exercice 2, Le tableau inversé est : {table}'.format(table = reverse_tab
 
 """Exo 3
 """
+img=cv2.imread("../s3/trounoir.jfif",0)
+roi = roi_bbox(img)
+print('Exercice 3, la bounding box est de coordonnées : lmax = {lmax}, lmin = {lmin}, cmax = {cmax}, cmin = {cmin}'.format(lmax = roi[3][0], lmin = roi[0][0], cmax = roi[3][1], cmin = roi[0][1]))
